@@ -1,0 +1,21 @@
+import numpy as np
+import pandas as pd
+
+import matplotlib.pyplot as plt
+from IPython.display import Image
+
+from scipy import *
+import scipy.linalg as la
+
+from scipy.integrate import quad, dblquad, tplquad
+from scipy.special import jn, yn, jn_zeros, yn_zeros
+
+def integrand(x, n=1):
+  return jn(n, x)
+
+x_lower=0; x_upper = 10;
+val, abserr = quad(integrand, x_lower, x_upper)
+print("Integral value =", val, ", absolute error =", abserr)
+
+plt.rcParams["figure.figsize"] = [7.00, 3.50]
+plt.rcParams["figure.autolayout"] = True
