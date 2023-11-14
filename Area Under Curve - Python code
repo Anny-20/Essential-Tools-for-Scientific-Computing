@@ -1,0 +1,42 @@
+import numpy as np
+import pandas as pd
+
+import matplotlib.pyplot as plt
+from IPython.display import Image
+
+from scipy import *
+import scipy.linalg as la
+
+from scipy.integrate import quad, dblquad, tplquad
+
+#quad is for quadrature
+
+def f(x):
+  a=1;
+  return a* x**2
+
+val, abserr = quad(f,0,1)
+print("Integral value =", val, ", absolute error =", abserr)
+
+x_lower = 0*(-np.pi); x_upper =np.pi;
+val, abserr = quad(f, x_lower, x_upper)
+print("Integral value =", val, ", absolute error =", abserr)
+
+n = 256
+X = np.linspace(x_lower, x_upper, n, endpoint=True)
+Y=f(X)
+
+#fig, cx = plt.subplots()
+#cx.plot(X, Y, color='r', linewidth=8)
+#cx.plot(X, Y, '--r' , linewidth=8)
+#cx.plot(X, Y, '-.m' , linewidth=8)
+
+# plt.rcParams["figure.figsize"] = [3.50 , 7.00] # Horizontal stretch
+# plt.rcParams["figure.figsize"] = [7.00 , 3.50] # Vertical stretch
+plt.rcParams["figure.figsize"] = [3.50 , 7.00] # Horizontal stretch
+plt.rcParams["figure.autolayout"] = True
+
+fig,ax = plt.subplots()
+ax.plot(X,Y, color='blue', alpha=1.00)
+ax.fill_between(X, Y, 0, color='blue', alpha=.1)
+plt.show()

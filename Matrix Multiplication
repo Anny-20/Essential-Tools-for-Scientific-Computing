@@ -1,0 +1,20 @@
+from scipy import *
+from numpy import *
+
+M1 = array([[1,2,3],[3,4,5],[1,2,1]])
+M2 = array([[0,1,2],[3,4,5],[7,8,2]])
+
+M3=M1*M2 #Element-wise multiplication
+arr1 = [1,2,3]
+vect1=array(arr1)
+M4= vect1*M3
+
+print(linalg.inv(M3))
+print('\n')
+print(M3.T)
+
+print('\n M1 =', M1)
+print('\n M2 =', M2)
+print('\n M3 =', M3)
+print('\n Vector =', vect1)
+print('\n M4 =', M4)
