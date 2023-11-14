@@ -1,0 +1,11 @@
+!pip install folium
+import folium
+
+loc_map=folium.Map()
+locations = [{'loc':[37.0902,-95.7129],'label':'USA'},{'loc':[-34.9285,138.6007],'label':'Adelaide'},{'loc':[19.0760,72.8777],'label':'Mumbai'},{'loc':[48.8566,2.3522],'label':'Paris'},{'loc':[-35.6751,-71.5430],'label':'Chile'}]
+
+for location in locations:
+    marker = folium.Marker(location=location['loc'], popup=location['label'])
+    marker.add_to(loc_map)
+
+loc_map
